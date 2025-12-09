@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manjeet Kumar | AI & Data Science Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#2563eb',
+            secondary: '#475569',
+            dark: '#0f172a',
+            card: '#1e293b',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+        
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+
+    .blob {
+      position: absolute;
+      filter: blur(40px);
+      z-index: -1;
+      opacity: 0.4;
+      animation: move 10s infinite alternate;
+    }
+    @keyframes move {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(20px, -20px) scale(1.1); }
+    }
+  </style>
+</head>
+<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+
+  <!-- Background Blobs -->
+  <div class="blob bg-blue-600 w-64 h-64 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="blob bg-purple-600 w-96 h-96 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 backdrop-blur-md bg-dark/80 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="text-2xl font-bold text-white tracking-tighter">
+            MK<span class="text-primary">.</span>
+          </a>
+        </div>
+                
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#about" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+            <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+            <a href="#experience" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+            <a href="#projects" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+            <a href="#contact" class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all">Hire Me</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="-mr-2 flex md:hidden">
+          <button type="button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-slate-800">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#about" onclick="toggleMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#skills" onclick="toggleMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+        <a href="#experience" onclick="toggleMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+        <a href="#projects" onclick="toggleMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+        <a href="#contact" onclick="toggleMenu()" class="text-primary block px-3 py-2 rounded-md text-base font-bold">Hire Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="about" class="min-h-screen flex items-center justify-center pt-16 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col-reverse lg:flex-row items-center gap-12">
+      <div class="flex-1 text-center lg:text-left animate-fade-in">
+        <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-primary uppercase bg-blue-900/30 rounded-full">
+          Available for Opportunities
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Manjeet Kumar</span>
+        </h1>
+        <h2 class="text-xl md:text-2xl text-slate-400 mb-6 h-8">
+          I build <span id="typewriter" class="text-white font-semibold"></span><span class="animate-pulse">|</span>
+        </h2>
+        <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Final-year AI & Data Science undergraduate specializing in architecting scalable applications using AWS, Docker, and FastAPI. I turn complex data into intelligent solutions.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="#projects" class="px-8 py-3 bg-white text-dark font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg shadow-white/10">
+            View Projects
+          </a>
+          <a href="./resume/manjeet_kumar_resume_one.pdf" class="px-8 py-3 border border-slate-600 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors flex items-center justify-center gap-2" target="_blank" rel="noopener">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+                
+        <div class="mt-10 flex gap-6 justify-center lg:justify-start text-2xl text-slate-400">
+          <a href="https://linkedin.com/in/manjeetkumarofficial" target="_blank" class="hover:text-blue-500 transition-colors"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/manjeetmla" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+          <a href="mailto:manjeetkumarskills@gmail.com" class="hover:text-red-400 transition-colors"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+            
+      <div class="flex-1 relative animate-fade-in delay-200">
+        <div class="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+          <div class="absolute inset-0 rounded-full border-2 border-slate-700/50 flex items-center justify-center overflow-hidden bg-card/50 backdrop-blur-sm">
+            <!-- Placeholder for User Image -->
+            <div class="text-center p-8">
+              <i class="fas fa-user-astronaut text-6xl text-slate-600 mb-4"></i>
+              <p class="text-sm text-slate-500">Manjeet Kumar</p>
+            </div>
+          </div>
+                    
+          <!-- Floating Tech Icons -->
+          <div class="absolute -top-4 -right-4 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-xl animate-bounce" style="animation-duration: 3s;">
+            <i class="fab fa-python text-3xl text-yellow-400"></i>
+          </div>
+          <div class="absolute bottom-10 -left-8 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-xl animate-bounce" style="animation-duration: 4s;">
+            <i class="fab fa-aws text-3xl text-orange-500"></i>
+          </div>
+          <div class="absolute -bottom-4 right-10 bg-slate-800 p-3 rounded-xl border border-slate-700 shadow-xl animate-bounce" style="animation-duration: 5s;">
+            <i class="fab fa-docker text-3xl text-blue-500"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section (Brief) -->
+  <section class="py-10 bg-dark/50 border-y border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+        <div>
+          <h3 class="text-xl font-bold text-white">B.Tech in AI & Data Science</h3>
+          <p class="text-slate-400">Bhagwan Parshuram Institute Of Technology</p>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-slate-700"></div>
+        <div>
+          <h3 class="text-xl font-bold text-white">CGPA: 8.44/10.0</h3>
+          <p class="text-slate-400">2022 - 2026</p>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-slate-700"></div>
+        <div>
+          <h3 class="text-xl font-bold text-white">Class XII (Science)</h3>
+          <p class="text-slate-400">Kendriya Vidyalaya No.3 (86.6%)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technical Arsenal</h2>
+        <div class="h-1 w-20 bg-primary mx-auto rounded"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Languages -->
+        <div class="bg-card p-6 rounded-xl border border-slate-700/50 hover:border-primary/50 transition-all hover:transform hover:-translate-y-1 group">
+          <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
+            <i class="fas fa-code text-blue-400 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3">Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Python</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">JavaScript</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">TypeScript</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">SQL</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">HTML/CSS</span>
+          </div>
+        </div>
+
+        <!-- AI/ML -->
+        <div class="bg-card p-6 rounded-xl border border-slate-700/50 hover:border-purple/50 transition-all hover:transform hover:-translate-y-1 group">
+          <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+            <i class="fas fa-brain text-purple-400 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3">AI & ML</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Generative AI</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">LLMs</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">NLP</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">OpenCV</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Pandas</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">NumPy</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">NLTK</span>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="bg-card p-6 rounded-xl border border-slate-700/50 hover:border-green/50 transition-all hover:transform hover:-translate-y-1 group">
+          <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors">
+            <i class="fas fa-layer-group text-green-400 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3">Frameworks</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">FastAPI</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Django</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Angular</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Scikit-Learn</span>
+          </div>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="bg-card p-6 rounded-xl border border-slate-700/50 hover:border-orange/50 transition-all hover:transform hover:-translate-y-1 group">
+          <div class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+            <i class="fas fa-cloud text-orange-400 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3">Cloud & DevOps</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">AWS (EKS, S3)</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Docker</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Kubernetes</span>
+            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">GCP</span>
+              <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">AWS Lambda</span>
+              <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">Step Functions</span>
+              <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">SNS</span>
+              <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">PostgreSQL</span>
+              <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-300">MySQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Work Experience</h2>
+        <div class="h-1 w-20 bg-primary mx-auto rounded"></div>
+      </div>
+
+      <div class="relative border-l border-slate-700 ml-3 md:ml-6 space-y-12">
+        <!-- Job 1 -->
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-1.5 md:-left-2 top-0 h-3 w-3 md:h-4 md:w-4 rounded-full bg-primary ring-4 ring-slate-900"></div>
+          <div class="bg-card p-6 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-colors">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Full Stack Developer Intern</h3>
+                <p class="text-primary font-medium">Simple Solution, New Delhi</p>
+              </div>
+              <span class="text-sm text-slate-400 mt-2 md:mt-0 bg-slate-800 px-3 py-1 rounded-full w-fit">Jan 2025 - Oct 2025</span>
+            </div>
+            <ul class="list-disc list-outside ml-4 space-y-2 text-slate-300 text-sm md:text-base marker:text-primary">
+              <li>Architected full-stack app using <strong>Angular</strong> and <strong>FastAPI</strong> with PostgreSQL backend.</li>
+              <li>Containerized microservices using <strong>Docker</strong> and orchestrated on <strong>AWS EKS</strong>.</li>
+              <li>Engineered serverless workflows using <strong>AWS Lambda</strong> and Step Functions to optimize costs.</li>
+              <li>Configured <strong>Nginx</strong> reverse proxy for load balancing and security.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-1.5 md:-left-2 top-0 h-3 w-3 md:h-4 md:w-4 rounded-full bg-slate-500 ring-4 ring-slate-900"></div>
+          <div class="bg-card p-6 rounded-xl border border-slate-700/50 hover:border-slate-600 transition-colors">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Data Science Intern</h3>
+                <p class="text-primary font-medium">Cantilever, Remote</p>
+              </div>
+              <span class="text-sm text-slate-400 mt-2 md:mt-0 bg-slate-800 px-3 py-1 rounded-full w-fit">Aug 2024 - Sep 2024</span>
+            </div>
+            <ul class="list-disc list-outside ml-4 space-y-2 text-slate-300 text-sm md:text-base marker:text-slate-500">
+              <li>Developed automated data collection pipeline using <strong>Django</strong> and scraping libraries.</li>
+              <li>Implemented data preprocessing scripts enhancing analysis accuracy by 20%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
+        <div class="h-1 w-20 bg-primary mx-auto rounded"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- Project 1 -->
+        <div class="group bg-card rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">GenAI Customer Service Bot</h3>
+                  <div class="flex gap-3">
+                    <!-- <a href="https://movierecommendersystem-s7shrj36tfdiujpcd3qxwr.streamlit.app/" target="_blank" rel="noopener" title="Live demo" class="text-slate-400 hover:text-white"><i class="fas fa-arrow-up-right-from-square text-lg"></i></a> -->
+                    <a href="https://github.com/manjeetmla" target="_blank" rel="noopener" title="Source / GitHub" class="text-slate-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                  </div>
+            </div>
+            <p class="text-slate-400 mb-6 text-sm">
+              Conversational AI agent using Gemini AI, Ollama3, and Google PaLM. Handles dynamic queries with context retention and bias mitigation.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs border border-blue-800">Python</span>
+              <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs border border-blue-800">LLMs</span>
+              <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs border border-blue-800">Streamlit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group bg-card rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Image Comparison Tool</h3>
+                <div class="flex gap-3">
+                    <!-- <a href="https://movierecommendersystem-s7shrj36tfdiujpcd3qxwr.streamlit.app/" target="_blank" rel="noopener" title="Live demo" class="text-slate-400 hover:text-white"><i class="fas fa-arrow-up-right-from-square text-lg"></i></a> -->
+                    <a href="https://github.com/manjeetmla" target="_blank" rel="noopener" title="Source / GitHub" class="text-slate-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                  </div>
+            </div>
+            <p class="text-slate-400 mb-6 text-sm">
+              Computer vision app analyzing image similarity using Histogram, Texture (GLCM), and ORB Keypoints. Interactive Gradio UI.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs border border-purple-800">OpenCV</span>
+              <span class="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs border border-purple-800">Scikit-Learn</span>
+              <span class="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs border border-purple-800">Gradio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group bg-card rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Movie Recommender System</h3>
+                <div class="flex gap-3">
+                    <a href="https://manjeetmovierecommendation.streamlit.app/" target="_blank" rel="noopener" title="Live demo" class="text-slate-400 hover:text-white"><i class="fas fa-arrow-up-right-from-square text-lg"></i></a>
+                    <a href="https://github.com/manjeetmla" target="_blank" rel="noopener" title="Source / GitHub" class="text-slate-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                  </div>
+            </div>
+            <p class="text-slate-400 mb-6 text-sm">
+              ML system predicting best movie matches based on user history. Utilized Kaggle datasets for training.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-xs border border-green-800">Machine Learning</span>
+              <span class="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-xs border border-green-800">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="group bg-card rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">Spam Email Detection</h3>
+                <div class="flex gap-3">
+                    <!-- <a href="https://movierecommendersystem-s7shrj36tfdiujpcd3qxwr.streamlit.app/" target="_blank" rel="noopener" title="Live demo" class="text-slate-400 hover:text-white"><i class="fas fa-arrow-up-right-from-square text-lg"></i></a> -->
+                    <a href="https://github.com/manjeetmla" target="_blank" rel="noopener" title="Source / GitHub" class="text-slate-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                  </div>
+            </div>
+            <p class="text-slate-400 mb-6 text-sm">
+              ML classifier achieving 97.1% accuracy (precision: 1.0). Deployed via Streamlit for real-time text classification.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span class="px-3 py-1 bg-red-900/30 text-red-300 rounded-full text-xs border border-red-800">NLP</span>
+              <span class="px-3 py-1 bg-red-900/30 text-red-300 rounded-full text-xs border border-red-800">Classification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section class="py-16 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-white mb-8 text-center">Certifications & Leadership</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="bg-card border border-slate-700 px-4 py-2 rounded-lg text-slate-300 flex items-center gap-2">
+          <i class="fas fa-certificate text-yellow-500"></i> Google Cloud Big Data & ML
+        </span>
+        <span class="bg-card border border-slate-700 px-4 py-2 rounded-lg text-slate-300 flex items-center gap-2">
+          <i class="fas fa-certificate text-blue-500"></i> Microsoft Azure AI Fundamentals
+        </span>
+          <span class="bg-card border border-slate-700 px-4 py-2 rounded-lg text-slate-300 flex items-center gap-2">
+            <i class="fas fa-certificate text-indigo-400"></i> IBM AI Agent Architect
+          </span>
+        <span class="bg-card border border-slate-700 px-4 py-2 rounded-lg text-slate-300 flex items-center gap-2">
+          <i class="fas fa-users text-green-500"></i> Head Coordinator, DATAstic BPIT
+        </span>
+        <span class="bg-card border border-slate-700 px-4 py-2 rounded-lg text-slate-300 flex items-center gap-2">
+          <i class="fas fa-chalkboard-teacher text-red-500"></i> GDSC Member, BPIT (Technical team)
+        </span>
+          <span class="bg-card border border-slate-700 px-4 py-2 rounded-lg text-slate-300 flex items-center gap-2">
+            <i class="fas fa-network-wired text-yellow-400"></i> IEEE Member, BPIT (Technical team)
+          </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Let's Work Together</h2>
+      <p class="text-slate-400 mb-10 text-lg">
+        I'm currently looking for new opportunities in AI, Data Science, and Full Stack Development. 
+        Whether you have a question or just want to say hi, my inbox is always open!
+      </p>
+            
+      <a href="mailto:manjeetkumarskills@gmail.com" class="inline-block bg-primary hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-xl shadow-blue-600/20">
+        Say Hello <i class="fas fa-paper-plane ml-2"></i>
+      </a>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-400">
+        <div class="p-4 border border-slate-800 rounded-lg">
+          <i class="fas fa-map-marker-alt text-primary mb-2 text-xl"></i>
+          <p>New Delhi, India</p>
+        </div>
+        <div class="p-4 border border-slate-800 rounded-lg">
+          <i class="fas fa-phone text-primary mb-2 text-xl"></i>
+          <p>+91-9354568816</p>
+        </div>
+        <div class="p-4 border border-slate-800 rounded-lg">
+          <i class="fas fa-envelope text-primary mb-2 text-xl"></i>
+          <p class="break-words whitespace-normal text-sm">manjeetkumarskills@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark border-t border-slate-800 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-slate-500 text-sm">
+        &copy; 2025 Manjeet Kumar. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="https://github.com/manjeetmla" target="_blank" rel="noopener" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/manjeetkumarofficial/" target="_blank" rel="noopener" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Typewriter Effect
+    const words = ["Generative AI Solutions.", "Scalable Web Apps.", "Data Pipelines.", "Machine Learning Models."];
+    let i = 0;
+    let timer;
+
+    function typeWriter() {
+      const heading = document.getElementById("typewriter");
+      const word = words[i];
+      let j = 0;
+      let isDeleting = false;
+
+      function loop() {
+        heading.innerHTML = word.substring(0, j);
+                
+        if (!isDeleting && j < word.length) {
+          j++;
+          timer = setTimeout(loop, 100);
+        } else if (isDeleting && j > 0) {
+          j--;
+          timer = setTimeout(loop, 50);
+        } else {
+          isDeleting = !isDeleting;
+          if (!isDeleting) {
+            i = (i + 1) % words.length;
+            timer = setTimeout(typeWriter, 500);
+            return;
+          }
+          timer = setTimeout(loop, 2000);
+        }
+      }
+      loop();
+    }
+
+    // Start Typewriter
+    document.addEventListener('DOMContentLoaded', typeWriter);
+
+    // Smooth Scroll for anchor links (Polyfill-like behavior if CSS smooth-scroll fails)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
